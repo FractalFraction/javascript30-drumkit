@@ -1,0 +1,22 @@
+{
+  "name": "day-1-drum-kit",
+  "version": "1.0.0",
+  "description": "The first day of the Javascript30 challenge, creating a keyboard drumkit.",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server --files '*.css, *.html, *.js, !node_modules/**/*' --directory --port 5500 --browser 'firefox-dev'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FractalFraction/javascript30-drumkit.git"
+  },
+  "author": "Colin Gardiner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FractalFraction/javascript30-drumkit/issues"
+  },
+  "homepage": "https://github.com/FractalFraction/javascript30-drumkit#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.7"
+  }
+}
