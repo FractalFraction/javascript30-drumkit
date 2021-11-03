@@ -23,31 +23,55 @@
             <source src="../assets/sounds/clap.wav">
           </audio>
         </div>
+        <div>
+          <button id="hihatbutton">d</button>
+          <audio id="hihataudio">
+            <source src="../assets/sounds/hihat.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="openhatbutton">f</button>
+          <audio id="openhataudio">
+            <source src="../assets/sounds/openhat.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="ridebutton">g</button>
+          <audio id="rideaudio">
+            <source src="../assets/sounds/ride.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="snarebutton">h</button>
+          <audio id="snareaudio">
+            <source src="../assets/sounds/snare.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="tinkbutton">j</button>
+          <audio id="tinkaudio">
+            <source src="../assets/sounds/tink.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="tombutton">k</button>
+          <audio id="tomaudio">
+            <source src="../assets/sounds/tom.wav">
+          </audio>
+        </div>
+        <div>
+          <button id="boombutton">l</button>
+          <audio id="boomaudio">
+            <source src="../assets/sounds/boom.wav">
+          </audio>
+        </div>
     </div>
   </body>
 
   <script>
 
-    // const sounds = ["boom","clap","hihat","kick","openhat","ride","snare",
-    //                 "tink","tom"]
-
-    const sounds =["kick", "clap"]
-    const keys = ["KeyA","KeyS"]
-
-    // const keys = ["KeyA","KeyS","KeyH","KeyT","KeyG","KeyY",
-    //                 "KeyN","KeyE","KeyO"]
-
-    // [[kick, keyA], [clap, keyS]]
-
-    //const keyMapping = Object.fromEntries(new Map([sounds,keys]))
-
-
-    // Potential Solutions 
-    // 1) Store in JSON object and iterate throught it for each sounds e.g JSON obj = { instruments: { kick : {keycode: "KeyA", button: document.getElementById('kickButton')}, clap: {keycode: "KeyE", button: document.getElementById('clapButton')} } }   
-
-    // Psuedocode ...
-    // Scope?? and Event Listeners
-
+    const sounds =["kick", "clap","hihat","openhat","ride","snare","tink","tom","boom"]
+    const keys = ["KeyA","KeyS","KeyD","KeyF","KeyG","KeyH","KeyJ","KeyK","KeyL"]
 
     let instruments = {}
 
@@ -67,54 +91,13 @@
       document.addEventListener('keydown', (currentKey) => {
       
         if (currentKey.code === instruments[sound].keycode){
+          instruments[sound].audio.currentTime = 0; // Reset the audio to the beginning if currently playing
           instruments[sound].audio.play()
         }
       
      })
 
     })
-
-
-
-
-    // Consider using a factory function instead
-    // const boomButton = document.getElementById('boombutton')
-    // const boomAudio = document.getElementById('boomaudio')
-    
-    // const kickButton = document.getElementById('clapbutton')
-    // const kickAudio = document.getElementById('clapaudio')
-    
-    // const hihatButton = document.getElementById('hihatbutton')
-    // const hihatAudio = document.getElementById('hihataudio')
-    
-    // const kickButton = document.getElementById('button')
-    // const kickAudio = document.getElementById('kickaudio')
-    
-    // const openhatButton = document.getElementById('kickbutton')
-    // const openhatAudio = document.getElementById('kickaudio')
-    
-    // const rideButton = document.getElementById('kickbutton')
-    // const rideAudio = document.getElementById('kickaudio')
-    
-    // const snareButton = document.getElementById('kickbutton')
-    // const snareAudio = document.getElementById('kickaudio')
-    
-    // const tinkButton = document.getElementById('kickbutton')
-    // const tinkAudio = document.getElementById('kickaudio')
-
-    // Working Code ---------------------------------------
-    //   kickButton.addEventListener('click', () => {
-    //     kickAudio.play()
-    //   })
-
-    //   document.addEventListener('keydown', (key) => {
-      
-    //     if (key.code === "KeyT"){
-    //       kickAudio.play()
-    //     }
-        
-    //   })
-
   </script>
 
 </html>
