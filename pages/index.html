@@ -12,44 +12,68 @@
     <h1>Drum Kit</h1>
     <div class="container">
         <div>
-          <button id="kickbutton">A</button>
+          <button id="kickbutton">a</button>
           <audio id="kickaudio">
             <source src="../assets/sounds/kick.wav">
           </audio>
         </div>
         <div>
-          <button>B</button>
+          <button id="clapbutton">s</button>
+          <audio id="clapaudio">
+            <source src="../assets/sounds/clap.wav">
+          </audio>
         </div>
     </div>
   </body>
 
   <script>
 
-    const sounds = ["boom","clap","hihat","kick","openhat","ride","snare",
-                    "tink","tom"]
-    const keys = ["KeyA","KeyS","KeyH","KeyT","KeyG","KeyY",
-                    "KeyN","KeyE","KeyO"]
+    // const sounds = ["boom","clap","hihat","kick","openhat","ride","snare",
+    //                 "tink","tom"]
 
-    const keyMapping = Object.fromEntries(new Map([sounds,keys]))
+    const sounds =["kick", "clap"]
+    const keys = ["KeyA","KeyS"]
+
+    // const keys = ["KeyA","KeyS","KeyH","KeyT","KeyG","KeyY",
+    //                 "KeyN","KeyE","KeyO"]
+
+    // [[kick, keyA], [clap, keyS]]
+
+    //const keyMapping = Object.fromEntries(new Map([sounds,keys]))
+
+
+    // Potential Solutions 
+    // 1) Store in JSON object and iterate throught it for each sounds e.g JSON obj = { instruments: { kick : {keycode: "KeyA", button: document.getElementById('kickButton')}, clap: {keycode: "KeyE", button: document.getElementById('clapButton')} } }   
 
     // Psuedocode ...
-    sounds.forEach((sound) => {
-      const ${sound}Button = document.getElementById(`${sound}button`)
-      const ${sound}Audio = document.getElementById(`${sound}audio`)
+    // Scope?? and Event Listeners
 
-      ${sound}Button.addEventListener('click', () => {
-        ${sound}Button.play()
+
+    let instruments = {}
+
+    sounds.forEach((sound, index) => {
+
+      Object.defineProperty(instruments, sound, {value: {}, writable: true})
+      Object.assign(instruments[sound],
+        {keycode: keys[index], 
+         button: document.getElementById(`${sound}button`), 
+         audio: document.getElementById(`${sound}audio`),
+        })
+
+      instruments[sound].button.addEventListener('click', () => {
+        instruments[sound].audio.play()
       })
 
-      document.addEventListener('keydown', (key) => {
+      document.addEventListener('keydown', (currentKey) => {
       
-        if (key.code === keyMapping[sound]){
-          ${sound}Audio.play()
+        if (currentKey.code === instruments[sound].keycode){
+          instruments[sound].audio.play()
         }
       
      })
 
     })
+
 
 
 

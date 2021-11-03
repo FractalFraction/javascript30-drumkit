@@ -1,0 +1,9 @@
+# Please write your commit message below
+Title: # Main feature
+Summary: # Problem addressed and solution found
+
+Description: # Any other details go here
+
+Features Added: # Comma delimited list
+Bugs Fixed: # Comman delimited list
+
