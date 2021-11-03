@@ -1,0 +1,11 @@
+ body {
+  background-image: url("./images/background.svg");
+  background-color: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(152,152,240,1) 0%, rgba(227,140,146,1) 100%, rgba(221,78,78,1) 100%);
+  margin: 0 20%;
+}
+
+.container {
+  display:flex;
+  flex: 0 0 10rem;
+  flex-flow: row wrap;
+}

@@ -4,7 +4,8 @@
   "description": "The first day of the Javascript30 challenge, creating a keyboard drumkit.",
   "main": "index.html",
   "scripts": {
-    "start": "browser-sync start --server --files '*.css, *.html, *.js, !node_modules/**/*' --directory --port 5500 --browser 'firefox-dev'"
+    "start": "run-script-os",
+    "start:linux": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, images/*.svg, !node_modules/**/*' --watchEvents 'add,change,unlink,addDir,unlinkDir' --directory --port 7777 --browser 'firefox-dev'"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/FractalFraction/javascript30-drumkit#readme",
   "dependencies": {
-    "browser-sync": "^2.27.7"
+    "browser-sync": "^2.27.7",
+    "run-script-os": "^1.1.6"
   }
 }

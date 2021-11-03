@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" src="../assets/style.css">
+  <title>Initial Webpage</title>
+</head>
+
+  <body>
+    <h1>Drum Kit</h1>
+    <div class="container">
+        <div>
+          <button id="kickbutton">A</button>
+          <audio id="kickaudio">
+            <source src="../assets/sounds/kick.wav">
+          </audio>
+        </div>
+        <div>
+          <button>B</button>
+        </div>
+    </div>
+  </body>
+
+  <script>
+
+    const sounds = ["boom","clap","hihat","kick","openhat","ride","snare",
+                    "tink","tom"]
+    const keys = ["KeyA","KeyS","KeyH","KeyT","KeyG","KeyY",
+                    "KeyN","KeyE","KeyO"]
+
+    const keyMapping = Object.fromEntries(new Map([sounds,keys]))
+
+    // Psuedocode ...
+    sounds.forEach((sound) => {
+      const ${sound}Button = document.getElementById(`${sound}button`)
+      const ${sound}Audio = document.getElementById(`${sound}audio`)
+
+      ${sound}Button.addEventListener('click', () => {
+        ${sound}Button.play()
+      })
+
+      document.addEventListener('keydown', (key) => {
+      
+        if (key.code === keyMapping[sound]){
+          ${sound}Audio.play()
+        }
+      
+     })
+
+    })
+
+
+
+    // Consider using a factory function instead
+    // const boomButton = document.getElementById('boombutton')
+    // const boomAudio = document.getElementById('boomaudio')
+    
+    // const kickButton = document.getElementById('clapbutton')
+    // const kickAudio = document.getElementById('clapaudio')
+    
+    // const hihatButton = document.getElementById('hihatbutton')
+    // const hihatAudio = document.getElementById('hihataudio')
+    
+    // const kickButton = document.getElementById('button')
+    // const kickAudio = document.getElementById('kickaudio')
+    
+    // const openhatButton = document.getElementById('kickbutton')
+    // const openhatAudio = document.getElementById('kickaudio')
+    
+    // const rideButton = document.getElementById('kickbutton')
+    // const rideAudio = document.getElementById('kickaudio')
+    
+    // const snareButton = document.getElementById('kickbutton')
+    // const snareAudio = document.getElementById('kickaudio')
+    
+    // const tinkButton = document.getElementById('kickbutton')
+    // const tinkAudio = document.getElementById('kickaudio')
+
+    // Working Code ---------------------------------------
+    //   kickButton.addEventListener('click', () => {
+    //     kickAudio.play()
+    //   })
+
+    //   document.addEventListener('keydown', (key) => {
+      
+    //     if (key.code === "KeyT"){
+    //       kickAudio.play()
+    //     }
+        
+    //   })
+
+  </script>
+
+</html>
